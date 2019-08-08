@@ -3,7 +3,7 @@ export default {
         get(url,callback) {
             console.log(this)
             this._setupWebViewJavascriptBridge((bridge) => {
-                console.log(12000)
+                console.log(120000)
                 bridge.registerHandler(url, (data) => {
                     callback(data)
                 })
