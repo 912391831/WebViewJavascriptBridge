@@ -2,24 +2,24 @@ export default {
     Bridge: {
         get(url,callback) {
             console.log(this)
-            this._setupWebViewJavascriptBridge((bridge) => {
-                console.log(120000)
-                bridge
-                .registerHandler(url, (data) => {
-                    callback(data)
+                this._setupWebViewJavascriptBridge((bridge) => {
+                    console.log(120000)
+                    bridge
+                    .registerHandler(url, (data) => {
+                        callback(data)
+                    })
                 })
-            })
         },
         post(url,data,callback) {
-            this._setupWebViewJavascriptBridge((bridge) => {
-                bridge
-                .callHandler(url,data,(data) => {
-                    callback(data)
+                this._setupWebViewJavascriptBridge((bridge) => {
+                    bridge
+                    .callHandler(url,data,(data) => {
+                        callback(data)
 
 
-                    
+                        
+                    })
                 })
-            })
         },
         _setupWebViewJavascriptBridge(callback) {
             var u = navigator.userAgent
