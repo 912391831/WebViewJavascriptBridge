@@ -3,16 +3,21 @@ export default {
         get(url,callback) {
             console.log(this)
             this._setupWebViewJavascriptBridge((bridge) => {
-                console.log(12000)
-                bridge.registerHandler(url, (data) => {
+                console.log(120000)
+                bridge
+                .registerHandler(url, (data) => {
                     callback(data)
                 })
             })
         },
         post(url,data,callback) {
             this._setupWebViewJavascriptBridge((bridge) => {
-                bridge.callHandler(url,data,(data) => {
+                bridge
+                .callHandler(url,data,(data) => {
                     callback(data)
+
+
+                    
                 })
             })
         },
